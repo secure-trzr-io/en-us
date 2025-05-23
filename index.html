@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treżŏɾ.io/start |  Your Digital Transformation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600;900&display=swap');
+        
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --accent: #fd79a8;
+            --dark: #2d3436;
+            --light: #f5f6fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, var(--dark), #1a1a2e);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            animatn: fadeInDown 1s ease;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px rgba(108, 92, 231, 0.3);
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoratn: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            positn: relative;
+            transitn: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        nav a::after {
+            content: '';
+            positn: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transitn: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+            positn: relative;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animatn: fadeIn 1.5s ease, float 6s ease-in-out infinite;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            opacity: 0.9;
+            animatn: fadeInUp 1.5s ease;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50px;
+            text-decoratn: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 20px rgba(108, 92, 231, 0.3);
+            transitn: all 0.3s ease;
+            transform: translateY(0);
+            animatn: pulse 2s infinite;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(108, 92, 231, 0.4);
+        }
+        
+        sectn {
+            margin: 6rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transitn: all 0.8s ease;
+        }
+        
+        sectn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .sectn-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transitn: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .feature-card p {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .testimonial-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .testimonial-card .quote {
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-card .author {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+        
+        .pricing {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transitn: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .pricing-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .pricing-card.popular {
+            border: 1px solid var(--accent);
+            positn: relative;
+        }
+        
+        .pricing-card.popular::before {
+            content: 'Most Popular';
+            positn: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: white;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            positn: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            positn: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+        
+        .faq {
+            margin: 3rem 0;
+        }
+        
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .faq-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .faq-questn {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            animatn: fadeInUp 1s ease;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoratn: none;
+            transitn: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .social-icons a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transitn: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        /* Animatns */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .sectn-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Treżŏɾ.</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+        
+        <sectn class="hero">
+            <h1> Your Digital Transformatn</h1>
+            <p>Welcome to Treżŏɾ., the next-generatn platform that empowers businesses and creators to thrive in the digital ecosystem. Our cutting-edge solutns combine artificial intelligence, blockchain technology, and intuitive design to deliver unparalleled performance and user experience. Join thousands of innovators who are already transforming their workflows with our powerful tools.</p>
+            <a href="#" class="cta-button">Launch Your Project</a>
+        </sectn>
+        
+        <sectn id="features" class="visible">
+            <h2 class="sectn-title">Why Choose Treżŏɾ?</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>AI-Powered Analytics</h3>
+                    <p>Our machine learning algorithms analyze your data in real-time, providing actionable insights and predictive analytics to help you stay ahead of the competition. Visualize complex data through interactive dashboards.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Blockchain Security</h3>
+                    <p>Enterprise-grade security powered by blockchain technology ensures your data remains immutable and protected. Our decentralized architecture eliminates single points of failure.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cross-Platform Sync</h3>
+                    <p>Access your projects from any device with seamless synchronization. Our cloud infrastructure ensures your work is always up-to-date, whether you're on desktop, tablet, or mobile.</p>
+                </div>
+            </div>
+        </sectn>
+        
+        <sectn id="testimonials">
+            <h2 class="sectn-title">Trusted by Innovators</h2>
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <div class="quote">"Treżŏɾ. transformed our workflow completely. What used to take days now happens in hours with their automated processes and intelligent recommendatns."</div>
+                    <div class="author">— Sarah Johnson, TechSolutns Inc.</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">"The analytics dashboard alone is worth the subscription. We've identified three new revenue streams just by using their data visualizatn tools."</div>
+                    <div class="author">— Michael Chen, DataVisn</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote">"As a creative agency, we needed flexible tools that could adapt to our unique projects. Treżŏɾ's customizable platform was the perfect solutn."</div>
+                    <div class="author">— Emma Rodriguez, PixelForge Studs</div>
+                </div>
+            </div>
+        </sectn>
+        
+        <sectn id="pricing">
+            <h2 class="sectn-title">Simple, Transparent Pricing</h2>
+            <div class="pricing">
+                <div class="pricing-card">
+                    <h3>er</h3>
+                    <div class="price">$19<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Basic analytics dashboard</li>
+                        <li>Up to 5 projects</li>
+                        <li>Standard security</li>
+                        <li>Email support</li>
+                        <li>1GB storage</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">Get ed</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Professnal</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Advanced analytics</li>
+                        <li>Unlimited projects</li>
+                        <li>Enhanced security</li>
+                        <li>Prrity support</li>
+                        <li>10GB storage</li>
+                        <li>API access</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">$99<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Premium analytics suite</li>
+                        <li>Unlimited projects</li>
+                        <li>Blockchain security</li>
+                        <li>24/7 dedicated support</li>
+                        <li>100GB storage</li>
+                        <li>White-label optns</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="width: 100%; text-align: center; display: block;">Contact Sales</a>
+                </div>
+            </div>
+        </sectn>
+        
+        <sectn id="faq">
+            <h2 class="sectn-title">Frequently Asked Questns</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-questn">What makes Treżŏɾ different from other platforms? <span>+</span></div>
+                    <div class="faq-answer">Treżŏɾ combines three powerful technologies in one platform: AI-driven analytics, blockchain security, and cloud collaboratn. This unique integratn provides insights, protectn, and flexibility that standalone solutns can't match.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-questn">Can I try before I buy? <span>+</span></div>
+                    <div class="faq-answer">Absolutely! We offer a 14-day free trial with access to all Professnal plan features. No credit card required to  your trial.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-questn">How does the blockchain integratn work? <span>+</span></div>
+                    <div class="faq-answer">We use private blockchain technology to create immutable audit logs of all critical operatns. This ensures data integrity and provides verifiable proof of your workflows without the volatility of public blockchains.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-questn">What happens to my data if I cancel? <span>+</span></div>
+                    <div class="faq-answer">We keep your data for 90 days after cancellatn in case you want to reactivate your account. You can also export all your data at any time in standard formats.</div>
+                </div>
+            </div>
+        </sectn>
+        
+        <sectn id="contact">
+            <h2 class="sectn-title">Ready to Transform Your Workflow?</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">Join thousands of businesses already experiencing the Treżŏɾ advantage. Our team is standing by to help you get ed or answer any questns.</p>
+            <div style="text-align: center;">
+                <a href="#" class="cta-button"> Free Trial</a>
+                <a href="#" class="cta-button" style="background: transparent; border: 2px solid var(--accent); margin-left: 1rem;">Contact Support</a>
+            </div>
+        </sectn>
+        
+        <footer>
+            <div class="logo" style="font-size: 2rem;">Treżŏɾ.</div>
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">Press</a>
+                <a href="#">Legal</a>
+            </div>
+            <div class="social-icons">
+                <a href="#">Twitter</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">GitHub</a>
+            </div>
+            <p>© 2025 Treżŏɾ Technologies. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animatn for all sectns
+        document.addEventListener('DOMContentLoaded', functn() {
+            const sectns = document.querySelectorAll('sectn');
+            const featureCards = document.querySelectorAll('.feature-card');
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            const observer = new IntersectnObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sectns.forEach(sectn => {
+                observer.observe(sectn);
+            });
+            
+            featureCards.forEach(card => {
+                observer.observe(card);
+                card.style.transitnDelay = `${Array.from(featureCards).indexOf(card) * 0.1}s`;
+            });
+            
+            testimonialCards.forEach(card => {
+                observer.observe(card);
+                card.style.transitnDelay = `${Array.from(testimonialCards).indexOf(card) * 0.1}s`;
+            });
+            
+            pricingCards.forEach(card => {
+                observer.observe(card);
+                card.style.transitnDelay = `${Array.from(pricingCards).indexOf(card) * 0.1}s`;
+            });
+            
+            faqItems.forEach(item => {
+                observer.observe(item);
+                item.style.transitnDelay = `${Array.from(faqItems).indexOf(item) * 0.1}s`;
+                
+                // FAQ toggle functnality
+                const questn = item.querySelector('.faq-questn');
+                const answer = item.querySelector('.faq-answer');
+                const plus = item.querySelector('.faq-questn span');
+                
+                answer.style.display = 'none';
+                
+                questn.addEventListener('click', () => {
+                    if (answer.style.display === 'none') {
+                        answer.style.display = 'block';
+                        plus.textContent = '-';
+                    } else {
+                        answer.style.display = 'none';
+                        plus.textContent = '+';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
